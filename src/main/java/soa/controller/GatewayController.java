@@ -14,7 +14,12 @@ public class GatewayController {
 	GatewayService GS;
 
 	public GatewayController(GatewayService GS) {
-		this.GS= GS;
+		this.GS = GS;
+	}
+
+	@GetMapping("/")
+	public String home() {
+		return "Gateway Service is UP and running!";
 	}
 
 	@GetMapping("/{service}/{endpoint}")
@@ -22,4 +27,4 @@ public class GatewayController {
 		return GS.invokeService(service, endpoint);
 	}
 	
-}
+}
